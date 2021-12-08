@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "cuisines#index"
   resources :saved_pairings
   resources :dish_pairings
   resources :cuisine_pairings
