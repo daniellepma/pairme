@@ -6,6 +6,10 @@ class Dish < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :wine,
+             :through => :dish_pairings,
+             :source => :wine
+
   # Validations
 
   # Scopes

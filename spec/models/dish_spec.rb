@@ -10,6 +10,8 @@ RSpec.describe Dish, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_one(:wine) }
+
     end
 
     describe "Validations" do

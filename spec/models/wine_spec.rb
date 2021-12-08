@@ -12,6 +12,8 @@ RSpec.describe Wine, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:dishes) }
+
     end
 
     describe "Validations" do

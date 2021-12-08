@@ -9,6 +9,10 @@ class Wine < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :dishes,
+             :through => :dish_pairings,
+             :source => :dish
+
   # Validations
 
   # Scopes
