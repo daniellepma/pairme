@@ -12,4 +12,6 @@ class WineResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :dishes
+
 end

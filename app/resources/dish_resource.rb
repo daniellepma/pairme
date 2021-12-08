@@ -10,4 +10,5 @@ class DishResource < ApplicationResource
 
   # Indirect associations
 
+  has_one    :wine
 end
