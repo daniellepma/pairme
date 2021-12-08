@@ -1,22 +1,12 @@
-<!-- Form saved_pairing start -->
 <%= form_with(model: @saved_pairing, local: true) do |f| %>
-<!-- Form saved_pairing end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for user_id start -->
   <%= f.hidden_field :user_id, value: @user.id %>
-  <!-- Input for user_id end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for pairing_id start -->
   <div class="form-group">
     <%= f.label :pairing_id %>
 
-    <!-- Input for pairing_id start -->
     <%= f.collection_select :pairing_id, CuisinePairing.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for pairing_id end -->
   </div>
-  <!-- Label and input for pairing_id end -->
 
   <%= f.submit "Create saved pairing", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

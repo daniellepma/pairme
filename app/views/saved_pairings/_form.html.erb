@@ -1,12 +1,7 @@
 <% was_validated = saved_pairing.errors.any? %>
 
 <%= form_with(model: saved_pairing, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for pairing_id start -->
   <div class="form-group">
     <% pairing_class = "form-control" %>
     <% pairing_was_invalid = saved_pairing.errors.include?(:pairing) %>
@@ -20,9 +15,7 @@
     <% end %>
 
     <%= f.label :pairing_id %>
-    <!-- Input for pairing_id start -->
     <%= f.collection_select :pairing_id, CuisinePairing.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for pairing_id end -->
     <% if pairing_was_invalid %>
       <% saved_pairing.errors.full_messages_for(:pairing).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -31,6 +24,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for pairing_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

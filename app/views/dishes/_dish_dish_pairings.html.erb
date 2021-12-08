@@ -10,24 +10,18 @@
   <ul class="list-group list-group-flush">
     <% @dish.dish_pairings.each do |dish_pairing| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to dish_pairing, dish_pairing %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%= link_to dish_pairing, method: :delete, data: { confirm: "Do you really want to delete this dish_pairing" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="dish_dish_pairings_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "dishes/dish_dish_pairings_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

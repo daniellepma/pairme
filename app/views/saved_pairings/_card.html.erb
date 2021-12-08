@@ -6,22 +6,18 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @saved_pairing.user.present? %>
           <%= link_to saved_pairing.user, saved_pairing.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Pairing</dt>
-      <!-- Display pairing_id start -->
       <dd>
         <% if @saved_pairing.cuisine.present? %>
           <%= link_to saved_pairing.cuisine, saved_pairing.cuisine %>
         <% end %>
       </dd>
-      <!-- Display pairing_id end -->
 
     </dl>
 
@@ -30,7 +26,6 @@
         <%= link_to_show_or_back saved_pairing, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link saved_pairing start -->
       <div class="col">
         <% if current_user == @saved_pairing.user %>
           <%= link_to edit_saved_pairing_url(saved_pairing), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -38,9 +33,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link saved_pairing end -->
 
-      <!-- Delete link saved_pairing start -->
       <div class="col">
         <% if current_user == @saved_pairing.user %>
           <%= link_to saved_pairing, method: :delete, data: { confirm: "Do you really want to delete this saved_pairing?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -48,7 +41,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link saved_pairing end -->
     </div>
   </div>
 

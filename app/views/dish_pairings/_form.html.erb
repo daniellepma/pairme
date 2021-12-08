@@ -1,7 +1,6 @@
 <% was_validated = dish_pairing.errors.any? %>
 
 <%= form_with(model: dish_pairing, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for dish_id start -->
   <div class="form-group">
     <% dish_class = "form-control" %>
     <% dish_was_invalid = dish_pairing.errors.include?(:dish) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :dish_id %>
-    <!-- Input for dish_id start -->
     <%= f.collection_select :dish_id, Dish.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for dish_id end -->
     <% if dish_was_invalid %>
       <% dish_pairing.errors.full_messages_for(:dish).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for dish_id end -->
-  <!-- Label and input for wine_id start -->
   <div class="form-group">
     <% wine_class = "form-control" %>
     <% wine_was_invalid = dish_pairing.errors.include?(:wine) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :wine_id %>
-    <!-- Input for wine_id start -->
     <%= f.collection_select :wine_id, Wine.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for wine_id end -->
     <% if wine_was_invalid %>
       <% dish_pairing.errors.full_messages_for(:wine).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for wine_id end -->
-  <!-- Label and input for description start -->
   <div class="form-group">
     <% description_class = "form-control" %>
     <% description_was_invalid = dish_pairing.errors.include?(:description) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :description %>
-    <!-- Input for description start -->
     <%= f.text_field :description, class: description_class, placeholder: "Enter description" %>
-    <!-- Input for description end -->
     <% if description_was_invalid %>
       <% dish_pairing.errors.full_messages_for(:description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for description end -->
-  <!-- Label and input for share_link start -->
   <div class="form-group">
     <% share_link_class = "form-control" %>
     <% share_link_was_invalid = dish_pairing.errors.include?(:share_link) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :share_link %>
-    <!-- Input for share_link start -->
     <%= f.text_field :share_link, class: share_link_class, placeholder: "Enter share link" %>
-    <!-- Input for share_link end -->
     <% if share_link_was_invalid %>
       <% dish_pairing.errors.full_messages_for(:share_link).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,6 +89,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for share_link end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

@@ -1,7 +1,6 @@
 <% was_validated = wine.errors.any? %>
 
 <%= form_with(model: wine, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for varietal start -->
   <div class="form-group">
     <% varietal_class = "form-control" %>
     <% varietal_was_invalid = wine.errors.include?(:varietal) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :varietal %>
-    <!-- Input for varietal start -->
     <%= f.text_field :varietal, class: varietal_class, placeholder: "Enter varietal" %>
-    <!-- Input for varietal end -->
     <% if varietal_was_invalid %>
       <% wine.errors.full_messages_for(:varietal).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,6 +23,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for varietal end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

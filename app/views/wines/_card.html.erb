@@ -6,9 +6,7 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Varietal</dt>
-      <!-- Display varietal start -->
       <dd><%= wine.varietal %></dd>
-      <!-- Display varietal end -->
 
     </dl>
 
@@ -17,21 +15,17 @@
         <%= link_to_show_or_back wine, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link wine start -->
       <div class="col">
         <%= link_to edit_wine_url(wine), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link wine end -->
 
-      <!-- Delete link wine start -->
       <div class="col">
         <%= link_to wine, method: :delete, data: { confirm: "Do you really want to delete this wine?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link wine end -->
     </div>
   </div>
 
