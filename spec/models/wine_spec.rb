@@ -4,6 +4,8 @@ RSpec.describe Wine, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:dish_pairings) }
+
     it { should have_many(:cuisine_pairings) }
 
     end

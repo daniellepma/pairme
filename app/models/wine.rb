@@ -1,6 +1,9 @@
 class Wine < ApplicationRecord
   # Direct associations
 
+  has_many   :dish_pairings,
+             :dependent => :destroy
+
   has_many   :cuisine_pairings,
              :dependent => :destroy
 
