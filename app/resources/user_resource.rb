@@ -9,6 +9,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :saved_pairings
+
   # Indirect associations
 
 end
