@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :saved_pairings
   resources :dish_pairings
   resources :cuisine_pairings
   resources :wines

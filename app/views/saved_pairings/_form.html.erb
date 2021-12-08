@@ -1,0 +1,57 @@
+<% was_validated = saved_pairing.errors.any? %>
+
+<%= form_with(model: saved_pairing, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = saved_pairing.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <!-- Input for user_id start -->
+    <%= f.number_field :user_id, class: user_class, placeholder: "Enter user" %>
+    <!-- Input for user_id end -->
+    <% if user_was_invalid %>
+      <% saved_pairing.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for user_id end -->
+  <!-- Label and input for pairing_id start -->
+  <div class="form-group">
+    <% pairing_class = "form-control" %>
+    <% pairing_was_invalid = saved_pairing.errors.include?(:pairing) %>
+
+    <% if was_validated %>
+      <% if pairing_was_invalid %>
+        <% pairing_class << " is-invalid" %>
+      <% else %>
+        <% pairing_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :pairing_id %>
+    <!-- Input for pairing_id start -->
+    <%= f.number_field :pairing_id, class: pairing_class, placeholder: "Enter pairing" %>
+    <!-- Input for pairing_id end -->
+    <% if pairing_was_invalid %>
+      <% saved_pairing.errors.full_messages_for(:pairing).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for pairing_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
