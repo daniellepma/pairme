@@ -4,25 +4,20 @@ class SavedPairingsController < ApplicationController
 
   before_action :set_saved_pairing, only: %i[show edit update destroy]
 
-  # GET /saved_pairings
   def index
     @q = current_user.saved_pairings.ransack(params[:q])
     @saved_pairings = @q.result(distinct: true).includes(:user, :cuisine,
                                                          :dish).page(params[:page]).per(10)
   end
 
-  # GET /saved_pairings/1
   def show; end
 
-  # GET /saved_pairings/new
   def new
     @saved_pairing = SavedPairing.new
   end
 
-  # GET /saved_pairings/1/edit
   def edit; end
 
-  # POST /saved_pairings
   def create
     @saved_pairing = SavedPairing.new(saved_pairing_params)
 
@@ -38,7 +33,6 @@ class SavedPairingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /saved_pairings/1
   def update
     if @saved_pairing.update(saved_pairing_params)
       redirect_to @saved_pairing,
@@ -48,7 +42,6 @@ class SavedPairingsController < ApplicationController
     end
   end
 
-  # DELETE /saved_pairings/1
   def destroy
     @saved_pairing.destroy
     message = "SavedPairing was successfully deleted."
@@ -69,12 +62,10 @@ class SavedPairingsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_saved_pairing
     @saved_pairing = SavedPairing.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def saved_pairing_params
     params.require(:saved_pairing).permit(:user_id, :pairing_id)
   end
