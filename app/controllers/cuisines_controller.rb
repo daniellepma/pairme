@@ -8,6 +8,7 @@ class CuisinesController < ApplicationController
 
   # GET /cuisines/1
   def show
+    @cuisine_pairing = CuisinePairing.new
   end
 
   # GET /cuisines/new

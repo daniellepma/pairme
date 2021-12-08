@@ -8,6 +8,7 @@ class DishPairingsController < ApplicationController
 
   # GET /dish_pairings/1
   def show
+    @saved_pairing = SavedPairing.new
   end
 
   # GET /dish_pairings/new
@@ -24,7 +25,12 @@ class DishPairingsController < ApplicationController
     @dish_pairing = DishPairing.new(dish_pairing_params)
 
     if @dish_pairing.save
-      redirect_to @dish_pairing, notice: 'Dish pairing was successfully created.'
+      message = 'DishPairing was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @dish_pairing, notice: message
+      end
     else
       render :new
     end

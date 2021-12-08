@@ -24,7 +24,12 @@ class SavedPairingsController < ApplicationController
     @saved_pairing = SavedPairing.new(saved_pairing_params)
 
     if @saved_pairing.save
-      redirect_to @saved_pairing, notice: 'Saved pairing was successfully created.'
+      message = 'SavedPairing was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @saved_pairing, notice: message
+      end
     else
       render :new
     end
