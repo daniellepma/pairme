@@ -42,8 +42,14 @@ class DishPairingsController < ApplicationController
   # DELETE /dish_pairings/1
   def destroy
     @dish_pairing.destroy
-    redirect_to dish_pairings_url, notice: 'Dish pairing was successfully destroyed.'
+    message = "DishPairing was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to dish_pairings_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

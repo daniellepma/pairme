@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Cuisine Pairings
+
+    <a data-toggle="collapse" href="#cuisine_cuisine_pairings_new_form">
+      Add cuisine pairing
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @cuisine.cuisine_pairings.each do |cuisine_pairing| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to cuisine_pairing, cuisine_pairing %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to cuisine_pairing, method: :delete, data: { confirm: "Do you really want to delete this cuisine_pairing" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="cuisine_cuisine_pairings_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>
