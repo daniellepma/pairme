@@ -9,6 +9,9 @@ class DishPairingResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :saved_pairings,
+             foreign_key: :pairing_id
+
   belongs_to :wine
 
   belongs_to :dish
