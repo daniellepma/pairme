@@ -3,7 +3,7 @@ class CuisinePairingsController < ApplicationController
 
   # GET /cuisine_pairings
   def index
-    @cuisine_pairings = CuisinePairing.all
+    @cuisine_pairings = CuisinePairing.page(params[:page]).per(10)
   end
 
   # GET /cuisine_pairings/1
