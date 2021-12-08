@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= saved_pairing.user_id %></dd>
+      <dd>
+        <% if @saved_pairing.user.present? %>
+          <%= link_to saved_pairing.user, saved_pairing.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Pairing</dt>
       <!-- Display pairing_id start -->
-      <dd><%= saved_pairing.pairing_id %></dd>
+      <dd>
+        <% if @saved_pairing.cuisine.present? %>
+          <%= link_to saved_pairing.cuisine, saved_pairing.cuisine %>
+        <% end %>
+      </dd>
       <!-- Display pairing_id end -->
 
     </dl>

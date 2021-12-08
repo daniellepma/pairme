@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Cuisine</dt>
       <!-- Display cuisine_id start -->
-      <dd><%= cuisine_pairing.cuisine_id %></dd>
+      <dd>
+        <% if @cuisine_pairing.cuisine.present? %>
+          <%= link_to cuisine_pairing.cuisine, cuisine_pairing.cuisine %>
+        <% end %>
+      </dd>
       <!-- Display cuisine_id end -->
 
       <dt>Wine</dt>
       <!-- Display wine_id start -->
-      <dd><%= cuisine_pairing.wine_id %></dd>
+      <dd>
+        <% if @cuisine_pairing.wine.present? %>
+          <%= link_to cuisine_pairing.wine, cuisine_pairing.wine %>
+        <% end %>
+      </dd>
       <!-- Display wine_id end -->
 
       <dt>Description</dt>
