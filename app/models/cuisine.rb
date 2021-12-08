@@ -6,6 +6,10 @@ class Cuisine < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :wine,
+             :through => :cuisine_pairings,
+             :source => :wine
+
   # Validations
 
   # Scopes
