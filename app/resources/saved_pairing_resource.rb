@@ -7,6 +7,10 @@ class SavedPairingResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :cuisine,
+             resource: CuisinePairingResource,
+             foreign_key: :pairing_id
+
   belongs_to :user
 
   # Indirect associations
