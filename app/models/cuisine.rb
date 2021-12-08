@@ -2,13 +2,13 @@ class Cuisine < ApplicationRecord
   # Direct associations
 
   has_many   :cuisine_pairings,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_one    :wine,
-             :through => :cuisine_pairings,
-             :source => :wine
+             through: :cuisine_pairings,
+             source: :wine
 
   # Validations
 
@@ -17,5 +17,4 @@ class Cuisine < ApplicationRecord
   def to_s
     name
   end
-
 end

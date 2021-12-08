@@ -2,13 +2,13 @@ class Dish < ApplicationRecord
   # Direct associations
 
   has_many   :dish_pairings,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_one    :wine,
-             :through => :dish_pairings,
-             :source => :wine
+             through: :dish_pairings,
+             source: :wine
 
   # Validations
 
@@ -17,5 +17,4 @@ class Dish < ApplicationRecord
   def to_s
     name
   end
-
 end

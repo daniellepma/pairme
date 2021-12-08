@@ -13,7 +13,7 @@ class Api::V1::DishPairingsController < Api::V1::GraphitiController
     dish_pairing = DishPairingResource.build(params)
 
     if dish_pairing.save
-      render jsonapi: dish_pairing, status: 201
+      render jsonapi: dish_pairing, status: :created
     else
       render jsonapi_errors: dish_pairing
     end
@@ -33,7 +33,7 @@ class Api::V1::DishPairingsController < Api::V1::GraphitiController
     dish_pairing = DishPairingResource.find(params)
 
     if dish_pairing.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: dish_pairing
     end

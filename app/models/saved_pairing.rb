@@ -2,19 +2,19 @@ class SavedPairing < ApplicationRecord
   # Direct associations
 
   belongs_to :dish,
-             :required => false,
-             :class_name => "DishPairing",
-             :foreign_key => "pairing_id",
-             :counter_cache => true
+             optional: true,
+             class_name: "DishPairing",
+             foreign_key: "pairing_id",
+             counter_cache: true
 
   belongs_to :cuisine,
-             :required => false,
-             :class_name => "CuisinePairing",
-             :foreign_key => "pairing_id",
-             :counter_cache => true
+             optional: true,
+             class_name: "CuisinePairing",
+             foreign_key: "pairing_id",
+             counter_cache: true
 
   belongs_to :user,
-             :counter_cache => true
+             counter_cache: true
 
   # Indirect associations
 
@@ -25,5 +25,4 @@ class SavedPairing < ApplicationRecord
   def to_s
     user.to_s
   end
-
 end

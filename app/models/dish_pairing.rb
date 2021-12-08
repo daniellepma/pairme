@@ -2,8 +2,8 @@ class DishPairing < ApplicationRecord
   # Direct associations
 
   has_many   :saved_pairings,
-             :foreign_key => "pairing_id",
-             :dependent => :destroy
+             foreign_key: "pairing_id",
+             dependent: :destroy
 
   belongs_to :wine
 
@@ -18,5 +18,4 @@ class DishPairing < ApplicationRecord
   def to_s
     dish.to_s
   end
-
 end

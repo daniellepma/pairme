@@ -13,7 +13,7 @@ class Api::V1::SavedPairingsController < Api::V1::GraphitiController
     saved_pairing = SavedPairingResource.build(params)
 
     if saved_pairing.save
-      render jsonapi: saved_pairing, status: 201
+      render jsonapi: saved_pairing, status: :created
     else
       render jsonapi_errors: saved_pairing
     end
@@ -33,7 +33,7 @@ class Api::V1::SavedPairingsController < Api::V1::GraphitiController
     saved_pairing = SavedPairingResource.find(params)
 
     if saved_pairing.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: saved_pairing
     end

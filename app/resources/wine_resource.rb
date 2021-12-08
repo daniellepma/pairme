@@ -15,5 +15,4 @@ class WineResource < ApplicationResource
   many_to_many :cuisines
 
   many_to_many :dishes
-
 end

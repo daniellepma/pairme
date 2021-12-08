@@ -17,5 +17,4 @@ class CuisinePairingResource < ApplicationResource
   belongs_to :cuisine
 
   # Indirect associations
-
 end
