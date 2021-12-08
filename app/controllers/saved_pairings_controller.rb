@@ -5,7 +5,7 @@ class SavedPairingsController < ApplicationController
 
   # GET /saved_pairings
   def index
-    @saved_pairings = SavedPairing.all
+    @saved_pairings = current_user.saved_pairings.page(params[:page]).per(10)
   end
 
   # GET /saved_pairings/1
