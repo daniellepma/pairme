@@ -42,7 +42,7 @@
 
     <%= f.label :pairing_id %>
     <!-- Input for pairing_id start -->
-    <%= f.number_field :pairing_id, class: pairing_class, placeholder: "Enter pairing" %>
+    <%= f.collection_select :pairing_id, CuisinePairing.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for pairing_id end -->
     <% if pairing_was_invalid %>
       <% saved_pairing.errors.full_messages_for(:pairing).each do |message| %>

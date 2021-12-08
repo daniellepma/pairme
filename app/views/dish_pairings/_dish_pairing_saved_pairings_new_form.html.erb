@@ -14,7 +14,7 @@
 
   <!-- Label and input for pairing_id start -->
   <!-- Input for pairing_id start -->
-  <%= f.hidden_field :pairing_id, value: @dish_pairing.id %>
+    <%= f.collection_select :pairing_id, CuisinePairing.all, :id, :to_s, {}, class: "form-control" %>
   <!-- Input for pairing_id end -->
   <!-- Label and input for pairing_id end -->
 
