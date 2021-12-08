@@ -6,6 +6,8 @@ class DishResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :dish_pairings
+
   # Indirect associations
 
 end
