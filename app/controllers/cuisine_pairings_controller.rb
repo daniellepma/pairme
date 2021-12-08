@@ -3,7 +3,8 @@ class CuisinePairingsController < ApplicationController
 
   # GET /cuisine_pairings
   def index
-    @cuisine_pairings = CuisinePairing.page(params[:page]).per(10)
+    @q = CuisinePairing.ransack(params[:q])
+    @cuisine_pairings = @q.result(:distinct => true).includes(:cuisine, :wine, :saved_pairings).page(params[:page]).per(10)
   end
 
   # GET /cuisine_pairings/1

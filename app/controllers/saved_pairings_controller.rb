@@ -5,7 +5,8 @@ class SavedPairingsController < ApplicationController
 
   # GET /saved_pairings
   def index
-    @saved_pairings = current_user.saved_pairings.page(params[:page]).per(10)
+    @q = current_user.saved_pairings.ransack(params[:q])
+    @saved_pairings = @q.result(:distinct => true).includes(:user, :cuisine, :dish).page(params[:page]).per(10)
   end
 
   # GET /saved_pairings/1
