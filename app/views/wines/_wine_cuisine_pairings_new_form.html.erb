@@ -7,7 +7,7 @@
     <%= f.label :cuisine_id %>
 
     <!-- Input for cuisine_id start -->
-    <%= f.text_field :cuisine_id, class: "form-control" %>
+    <%= f.collection_select :cuisine_id, Cuisine.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for cuisine_id end -->
   </div>
   <!-- Label and input for cuisine_id end -->
