@@ -1,0 +1,56 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Dish Pairing #<%= dish_pairing.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Dish</dt>
+      <!-- Display dish_id start -->
+      <dd><%= dish_pairing.dish_id %></dd>
+      <!-- Display dish_id end -->
+
+      <dt>Wine</dt>
+      <!-- Display wine_id start -->
+      <dd><%= dish_pairing.wine_id %></dd>
+      <!-- Display wine_id end -->
+
+      <dt>Description</dt>
+      <!-- Display description start -->
+      <dd><%= dish_pairing.description %></dd>
+      <!-- Display description end -->
+
+      <dt>Share link</dt>
+      <!-- Display share_link start -->
+      <dd><%= dish_pairing.share_link %></dd>
+      <!-- Display share_link end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back dish_pairing, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link dish_pairing start -->
+      <div class="col">
+        <%= link_to edit_dish_pairing_url(dish_pairing), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link dish_pairing end -->
+
+      <!-- Delete link dish_pairing start -->
+      <div class="col">
+        <%= link_to dish_pairing, method: :delete, data: { confirm: "Do you really want to delete this dish_pairing?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link dish_pairing end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(dish_pairing.updated_at) %> ago
+  </div>
+</div>

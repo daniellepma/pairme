@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :dish_pairings
   resources :cuisine_pairings
   resources :wines
   resources :dishes
