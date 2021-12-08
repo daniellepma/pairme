@@ -6,6 +6,8 @@ class WineResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :dish_pairings
+
   has_many   :cuisine_pairings
 
   # Indirect associations
