@@ -1,6 +1,12 @@
 class SavedPairing < ApplicationRecord
   # Direct associations
 
+  belongs_to :dish,
+             :required => false,
+             :class_name => "DishPairing",
+             :foreign_key => "pairing_id",
+             :counter_cache => true
+
   belongs_to :cuisine,
              :required => false,
              :class_name => "CuisinePairing",
